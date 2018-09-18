@@ -14,7 +14,7 @@ int main()
     int first = (int) (char) s[0];
     int second = (int) (char) s[1];
     int third = (int) (char) s[2];
-    
+
     float f = frequency(first);
 
     //if there is no accidental in the entered note, calculate the frequency
@@ -30,7 +30,7 @@ int main()
     }
 
     //if there is an accidental in the entered note, increase or decrease one semitone, then calculate the frequency
-    if (second == 35 || second == 98)
+    else if (second == 35 || second == 98)
     {
         float y = 0;
 
@@ -50,9 +50,10 @@ int main()
         printf("%f\n", result);
     }
     else
-    printf("It is not a correct note!\n");
-    return 1;
-
+    {
+        printf("It is not a correct note!\n");
+        return 1;
+    }
 }
 
 //a function of calculating frequency
