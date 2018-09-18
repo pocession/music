@@ -5,7 +5,7 @@
 
 //The program is a practice of transforming notes to its corresponding frequency
 
-//transform the first character into an integer
+//transform the first character into an integer and calculate frequency
 float frequency(int);
 
 int main()
@@ -14,8 +14,7 @@ int main()
     int first = (int) (char) s[0];
     int second = (int) (char) s[1];
     int third = (int) (char) s[2];
-
-    //transform the first character of the entered note into an integer
+    
     float f = frequency(first);
 
     //if there is no accidental in the entered note, calculate the frequency
@@ -56,6 +55,7 @@ int main()
 
 }
 
+//a function of calculating frequency
 float frequency(first)
 {
     int y = 0;
