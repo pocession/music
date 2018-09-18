@@ -1,0 +1,44 @@
+#include <stdio.h>
+#include <cs50.h>
+#include <string.h>
+#include <math.h>
+
+//The program is a practice of modified version of transforming notes to its corresponding frequency
+
+int main()
+{
+    string s = get_string("Please enter your notes: \n");
+
+    int first = (int) (char) s[0];
+    int second = (int) (char) s[1];
+    int third = (int) (char) s[2];
+
+    //learn to use a offset function in c
+    //A:0, B:2, C:-9, D:-7, E:-5, F:-4, G:-2
+    int first_vals[7] = {0, 2, -9, -7, -5, -4, -2};
+    int octave;
+    int first_offset = first_vals[first - 65];
+    int semitone;
+    if (second >= 48 && second <= 56)
+    {
+        octave = second - 48 - 4;
+        semitone = first_offset;
+    }
+    else if (second == 35)
+    {
+        octave = third - 48 - 4;
+        semitone = first_offset + 1;
+    }
+    else if (second == 98)
+    {
+        octave = third - 48 - 4;
+        semitone = first_offset - 1;
+    }
+    else
+    {
+        printf("Your entry is a wrong note!\n");
+        return 1;
+    }
+    float result = 440 * pow (2, (float) semitone / (float) 12) * pow (2, octave);
+    printf("%f\n", result);
+}
